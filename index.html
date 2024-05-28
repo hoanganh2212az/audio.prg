@@ -14,16 +14,36 @@
     <div id="buttons">
         <button id="start-button">Start</button>
         <button id="info-button">Info</button>
+        <button id="settings-button">Settings</button> <!-- Settings button -->
     </div>
     <div id="info-popup">
         <span>This game made by Tom</span>
         <button id="close-popup-button">Close</button>
     </div>
+    <div id="settings-popup"> <!-- Settings popup -->
+        <h3>Settings</h3>
+        <div>
+            <label>
+                <input type="checkbox" id="mute-bg-music"> Mute Background Music
+            </label>
+            <input type="range" id="bg-music-volume" min="0" max="1" step="0.01">
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" id="mute-game-music"> Mute Gameplay Music
+            </label>
+            <input type="range" id="game-music-volume" min="0" max="1" step="0.01">
+        </div>
+        <button id="close-settings-button">Close</button>
+    </div>
+    <audio id="bg-music" src="/sound/bg_music.mp3" loop></audio> <!-- Background music audio element -->
+    <audio id="game-music" src="/sound/game_music.mp3" loop></audio> <!-- Gameplay music audio element -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js" type="module"></script>
     <script src="buttons.js" type="module"></script>
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-      </script>
-      <script defer src="/_vercel/insights/script.js"></script></body>
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</body>
 </html>

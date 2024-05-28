@@ -9,7 +9,7 @@ let enemySpawnDecreaseInterval = 10; // Interval for decreasing enemy spawn inte
 let clock = new THREE.Clock(), keys = {};
 let gameOver = false, score = 10;
 let health = 10; // Initial health
-let explosions = []; // Declare explosions array herez
+let explosions = []; // Declare explosions array here
 
 let shakeDuration = 0;
 let shakeIntensity = 0;
@@ -19,7 +19,7 @@ const MAX_ENEMY_SPEED = 0.5;
 const shotSound = new Audio('sound/shot.mp3');
 const losingSound = new Audio('sound/losing.mp3');
 const ammoCrateSound = new Audio('sound/ammo_crate.mp3');
-const explode = new Audio('sound/explode.mp3');
+const explodeSound = new Audio('sound/explode.mp3');
 const outOfAmmoSound = new Audio('sound/out_of_ammo.mp3');
 const healthPickupSound = new Audio('sound/health.mp3');
 const crashSound = new Audio('sound/crash.mp3');
@@ -285,7 +285,7 @@ function detectCollisions() {
                 updateScore(); // Update score display
 
                 // Clone the audio node and play the explosion sound
-                const explodeAudio = explode.cloneNode();
+                const explodeAudio = explodeSound.cloneNode();
                 explodeAudio.play();
                 explosions.push(new Explosion(enemy.position));
             }
