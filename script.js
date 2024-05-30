@@ -24,6 +24,10 @@ const outOfAmmoSound = new Audio('sound/out_of_ammo.mp3');
 const healthPickupSound = new Audio('sound/health.mp3');
 const crashSound = new Audio('sound/crash.mp3');
 
+// Initialize global volume settings
+window.shotSoundVolume = 1.0;
+window.explodeSoundVolume = 1.0;
+
 function startGame() {
     setGameStarted(true);
     document.getElementById('buttons').style.display = 'none';
@@ -146,6 +150,7 @@ function createBullet() {
 
         // Play shot sound
         const shotAudio = shotSound.cloneNode();
+        shotAudio.volume = window.shotSoundVolume;
         shotAudio.play();
     } else {
         // Show warning message
@@ -286,6 +291,7 @@ function detectCollisions() {
 
                 // Clone the audio node and play the explosion sound
                 const explodeAudio = explodeSound.cloneNode();
+                explodeAudio.volume = window.explodeSoundVolume;
                 explodeAudio.play();
                 explosions.push(new Explosion(enemy.position));
             }
@@ -370,7 +376,6 @@ function detectCollisions() {
         });
     });
 }
-
 
 function startScreenShake(duration = 0.2, intensity = 0.25) {
     shakeDuration = duration;
